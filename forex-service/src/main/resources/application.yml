@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: forex-service
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enable: true
+server:
+  port: 0
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: true
